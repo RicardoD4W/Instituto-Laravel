@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-lg-12 d-flex justify-content-center">
-                <h1 class="m-3">Bienvenido a HollyWood</h1>
+                <h1 class="m-3">Welcome to <code>Paco IV Martos</code></h1>
             </div>
         </div>
 
@@ -30,10 +30,10 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th class="" scope="col">Nombre</th>
-                        <th scope="col">nacionalidad</th>
-                        <th scope="col">fecha_nacimineto</th>
-                        <th scope="col">añosExperiencia</th>
+                        <th class="" scope="col">Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">birth_year</th>
+                        <th scope="col">gender</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                         <th scope="col"></th>
@@ -47,29 +47,29 @@
 
                         <th scope="row">{{$student->id}}</th>
                         <td>{{$student->name}}</td>
-                        <td>{{$student->nacionalidad}}</td>
-                        <td>{{$student->fecha_nacimineto}}</td>
-                        <td>{{$student->añosExperiencia}}</td>
+                        <td>{{$student->last_name}}</td>
+                        <td>{{$student->birth_year}}</td>
+                        <td>{{$student->gender}}</td>
                         <td>
                             <form action="{{route('students.showDetails',[$student->id])}}" method="GET">
                                 
                                 <input type="hidden" name="id" value="{{$student->id}}">
-                                <button role="submit" class=" btn btn-primary">Ver</button>
+                                <button role="submit" class=" btn btn-primary">Details</button>
                             </form>
                         </td>
 
                         <td>
-                            <form action="{{route('students.edit',[$student->id])}}" method="GET">
+                            <form action="{{route('students.editForm',[$student->id])}}" method="GET">
                                 
                                 <input type="hidden" name="id" value="{{$student->id}}">
-                                <button role="submit" class=" btn btn-secondary">Editar</button>
+                                <button role="submit" class=" btn btn-secondary">Edit</button>
                             </form>
                         </td>
 
                         <td>
-                            <form action="{{route('students.delete')}}" method="POST">
-                                @csrf
-                                <button role="submit" class=" btn btn-danger">Eliminar</button>
+                            <form action="{{route('students.delete')}}" method="GET">
+                                
+                                <button role="submit" class=" btn btn-danger">Delete</button>
                                 <input type="hidden" name="id" value="{{$student->id}}">
                             </form>
                         </td>
