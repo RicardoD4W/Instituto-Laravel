@@ -50,10 +50,12 @@ class SubjectController extends Controller
         return redirect()->action([SubjectController::class, 'index']);
     }
 
-    public function create(){
-        $id = request('id');
-        $subjects = Subject::find($id);
+    public function formCreate(){
+        return view('subjects.create');
+    }
 
-        return view('subjects.create',['subjects' => $subjects]);
+    function create(Request $request){
+        Subject::create($request->all());
+        return redirect()->action([SubjectController::class, 'index']);
     }
 }

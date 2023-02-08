@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Student_Subject;
 use App\Models\Subject;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -63,10 +64,34 @@ class StudentController extends Controller
     }
 
 
-
+    public function formCreate(){
+        $subjects = Subject::all();
+        return view('students.create', ['subjects' => $subjects]);
+    }
 
     public function create(){
-        return view('students.create'); // recuperar con el id el alum o para placeholder
+        //$id_stundent = request('id');
+        $name = request('name');
+        $last_name = request('last_name');
+        $birth_year = request('birth_year');
+        $gender = request('gender');
+
+        $subjectChecked = request('subjectChecked');
+        //var_dump($subjectChecked);
+
+
+        $id_alumno = DB::table('students')->orderBy('id', 'desc')->limit(1)->get()[0]->id;
+        echo $id_alumno;
+        // Student::create([
+        //     'name' => $name,
+        //     'last_name' => $last_name,
+        //     'birth_year' => $birth_year,
+        //     'gender' => $gender
+
+        // ]);
+
+        
+        //return view('students.create'); // recuperar con el id el alum o para placeholder
     }
 
 
