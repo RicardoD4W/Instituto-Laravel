@@ -16,25 +16,24 @@
     @endsection
 
     @section('content')
+        <h1>SHOW DETAILS</h1>
         <div class="mt-5 ms-5 d-flex flex-column aling-items-center justify-content-center">
 
-            <h2>Student {{ $students->name }}</h2>
+            <h2>Sunject {{ $subject->name }}</h2>
             <table class="table text-center w-50">
                 <tr>
 
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Birth Date</th>
-                    <th scope="col">Gender</th>
+                    <th scope="col">Credits</th>
+                    <th scope="col">Hour</th>
                 </tr>
                 <tr>
 
-                    <td>{{ $students->id }}</td>
-                    <td>{{ $students->name }}</td>
-                    <td>{{ $students->last_name }}</td>
-                    <td>{{ $students->birth_year }}</td>
-                    <td>{{ $students->gender }}</td>
+                    <td>{{ $subject->id }}</td>
+                    <td>{{ $subject->name }}</td>
+                    <td>{{ $subject->credits }}</td>
+                    <td>{{ $subject->hour }}</td>
                 </tr>
             </table>
 
@@ -45,17 +44,19 @@
 
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Credits</th>
-                    <th scope="col">Hours</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Birth Date</th>
+                    <th scope="col">Gender</th>
                 </tr>
 
-                @foreach ($subjects as $subject)
+                @foreach ($students as $student)
                     <tr>
 
-                        <td>{{ $subject->id }}</td>
-                        <td>{{ $subject->name }}</td>
-                        <td>{{ $subject->credits }}</td>
-                        <td>{{ $subject->hour }}</td>
+                        <td>{{ $student->id }}</td>
+                        <td>{{ $student->name }}</td>
+                        <td>{{ $student->last_name }}</td>
+                        <td>{{ $student->birth_year }}</td>
+                        <td>{{ $student->gender }}</td>
 
                     </tr>
                 @endforeach

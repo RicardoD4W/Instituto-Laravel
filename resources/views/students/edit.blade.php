@@ -15,6 +15,8 @@
     
     @section('content')
 
+    <h2>Editing student {{$students->name}}...</h2>
+
         <form action="{{route('students.edit')}}" method="POST">
             @csrf
             <input name="id" type="hidden" value="{{$students->id}}">
