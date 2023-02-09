@@ -77,23 +77,23 @@ class StudentController extends Controller
         $id = request('subjectId');
         $subjectChecked = request('subjectChecked');
         var_dump($subjectChecked);
-        // Student::create([
-        //     'name' => $name,
-        //     'last_name' => $last_name,
-        //     'birth_year' => $birth_year,
-        //     'gender' => $gender
-        // ]);
+        Student::create([
+            'name' => $name,
+            'last_name' => $last_name,
+            'birth_year' => $birth_year,
+            'gender' => $gender
+        ]);
 
-        // $id_alumno = DB::table('students')->orderBy('id', 'desc')->limit(1)->get()[0]->id;
-        // foreach ($subjectChecked as $checked) {
-        //     Student_Subject::create([
-        //         'id_student' => $id_alumno,
-        //         'id_subject' =>   intval($checked->id) //TODO pasar id en la vista como hidden
-        //     ]);
-        // }        
+        $id_alumno = DB::table('students')->orderBy('id', 'desc')->limit(1)->get()[0]->id;
+        foreach ($subjectChecked as $checked) {
+            Student_Subject::create([
+                'id_student' => $id_alumno,
+                'id_subject' =>   $checked
+            ]);
+        }        
 
         
-        //return view('students.create'); 
+        return redirect()->action([StudentController::class, 'index']);
     }
 
 
