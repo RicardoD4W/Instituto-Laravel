@@ -70,28 +70,30 @@ class StudentController extends Controller
     }
 
     public function create(){
-        //$id_stundent = request('id');
         $name = request('name');
         $last_name = request('last_name');
         $birth_year = request('birth_year');
         $gender = request('gender');
-
+        $id = request('subjectId');
         $subjectChecked = request('subjectChecked');
-        //var_dump($subjectChecked);
-
-
-        $id_alumno = DB::table('students')->orderBy('id', 'desc')->limit(1)->get()[0]->id;
-        echo $id_alumno;
+        var_dump($subjectChecked);
         // Student::create([
         //     'name' => $name,
         //     'last_name' => $last_name,
         //     'birth_year' => $birth_year,
         //     'gender' => $gender
-
         // ]);
 
+        // $id_alumno = DB::table('students')->orderBy('id', 'desc')->limit(1)->get()[0]->id;
+        // foreach ($subjectChecked as $checked) {
+        //     Student_Subject::create([
+        //         'id_student' => $id_alumno,
+        //         'id_subject' =>   intval($checked->id) //TODO pasar id en la vista como hidden
+        //     ]);
+        // }        
+
         
-        //return view('students.create'); // recuperar con el id el alum o para placeholder
+        //return view('students.create'); 
     }
 
 

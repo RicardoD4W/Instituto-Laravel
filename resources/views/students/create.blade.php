@@ -29,8 +29,8 @@
                 @foreach ($subjects as $subject)
                     <tr>
                         <td>
-                            <label> <input type="checkbox" name="subjectChecked[]" value="{{ $subject->name }}">
-                                {{ $subject->name }}</label>
+                            <label> <input type="checkbox" name="subjectChecked[]" value="{{ $subject->name }}">{{ $subject->name }}</label>
+                            <input type="hidden" name="subjectId[]" value="{{ $subject->id }}">
                         </td>
                     </tr>
                 @endforeach
