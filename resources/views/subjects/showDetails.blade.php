@@ -19,7 +19,7 @@
         <h1>SHOW DETAILS</h1>
         <div class="mt-5 ms-5 d-flex flex-column aling-items-center justify-content-center">
 
-            <h2>Sunject {{ $subject->name }}</h2>
+            <h2>Subject {{ $subject->name }}</h2>
             <table class="table text-center w-50">
                 <tr>
 
@@ -38,7 +38,7 @@
             </table>
 
 
-            <h2 class="mt-5">Signatures</h2>
+            <h2 class="mt-5">Student</h2>
             <table class="table text-center w-50">
                 <tr>
 

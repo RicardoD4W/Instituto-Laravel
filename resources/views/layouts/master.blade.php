@@ -22,9 +22,9 @@
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
                             <a class="nav-item nav-link active" href="/">Students</a>
-                            <a class="nav-item nav-link" href="createForm">Create student</a>
+                            <a class="nav-item nav-link" href="/createForm">Create student</a>
                             <a class="nav-item nav-link active" href="/subjects">Subjects</a>
-                            <a class="nav-item nav-link" href="CreateForm">Create subject</a>
+                            <a class="nav-item nav-link" href="/CreateForm">Create subject</a>
                            {{-- <a class="nav-item nav-link" href="prueba">prueba</a>
                             <a class="nav-item nav-link disabled" href="verActor">ShowActor</a> --}}
                         </div>

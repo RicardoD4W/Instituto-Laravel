@@ -65,7 +65,7 @@ class SubjectController extends Controller
         $request->validate([
             'name' => 'string | required',
             'credits' => 'numeric | min:0 | required',
-            'Hour' => 'numeric | min:0 |required',
+            'hour' => 'numeric | min:0 |required',
         ]);
         
         Subject::create($request->all());
