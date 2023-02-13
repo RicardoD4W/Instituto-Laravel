@@ -29,7 +29,14 @@ class SubjectController extends Controller
         return view('subjects.edit',['subjects' => $subjects]);
     }
 
-    public function edit(){
+    public function edit(Request $request){
+
+        $request->validate([
+            'name' => 'string | required',
+            'credits' => 'numeric | min:0 | required',
+            'hour' => 'numeric | min:0 | required'
+        ]);
+        
         $id = request('id');
         $name = request('name');
         $credits = request('credits');
@@ -55,6 +62,12 @@ class SubjectController extends Controller
     }
 
     function create(Request $request){
+        $request->validate([
+            'name' => 'string | required',
+            'credits' => 'numeric | min:0 | required',
+            'Hour' => 'numeric | min:0 |required',
+        ]);
+        
         Subject::create($request->all());
         return redirect()->action([SubjectController::class, 'index']);
     }

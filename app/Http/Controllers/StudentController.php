@@ -36,8 +36,18 @@ class StudentController extends Controller
     }
 
 
-    public function edit()
+    public function edit(Request $request)
     {
+
+        $request->validate([
+            'name' => 'string | required',
+            'last_name' => 'required',
+            'birth_year' => 'required',
+            'gender' => 'required '
+    
+        ]);
+
+
         $id = request('id');
         $name = request('name');
         $last_name = request('last_name');
@@ -69,7 +79,16 @@ class StudentController extends Controller
         return view('students.create', ['subjects' => $subjects]);
     }
 
-    public function create(){
+    public function create(Request $request){
+
+        $request->validate([
+            'name' => 'string | required',
+            'last_name' => 'required',
+            'birth_year' => 'required',
+            'gender' => 'required'
+    
+        ]);
+
         $name = request('name');
         $last_name = request('last_name');
         $birth_year = request('birth_year');

@@ -18,9 +18,21 @@
     <h1>Creating signature...</h1>
     <form action="{{route('Create')}}" method="POST">
         @csrf
-        Name: <input name="name" type="text" value="">
-        Credits: <input name="credits" type="text" value="">
-        Hour: <input name="hour" type="text" value="">
+        Name: <input name="name" type="text" value="{{old('name')}}">
+        @error('name')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror
+        Credits: <input name="credits" type="text" value="{{old('credits')}}">
+        @error('credits')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror
+        Hour: <input name="hour" type="text" value="{{old('hour')}}">
+        @error('hour')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror
         <button type="submit"> Create subject </button>
     </form>
    

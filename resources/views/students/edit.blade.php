@@ -21,9 +21,29 @@
             @csrf
             <input name="id" type="hidden" value="{{$students->id}}">
             Name: <input name="name" type="text" value="{{$students->name}}">
+            @error('name')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror
+
             Last Name: <input name="last_name" type="text" value="{{$students->last_name}}">
+            @error('last_name')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror
+
             Birth Date: <input name="birth_year" type="date" value="{{$students->birth_year}}">
+            @error('birth_year')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror
+
             Gender: <input name="gender" type="text" maxlength="1" value="{{$students->gender}}">
+            @error('gender')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror
+
             <button type="submit"> Edit Student </button>
         </form>
 

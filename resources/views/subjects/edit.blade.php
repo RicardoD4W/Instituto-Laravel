@@ -21,8 +21,23 @@
             @csrf
             <input name="id" type="hidden" value="{{$subjects->id}}">
             Name: <input name="name" type="text" value="{{$subjects->name}}">
+            @error('name')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror
+
             Credits: <input name="credits" type="number" value="{{$subjects->credits}}">
+            @error('credits')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror
+
             Hour: <input name="hour" type="number" value="{{$subjects->hour}}">
+            @error('hour')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror
+
             <button type="submit"> Edit Subject </button>
         </form>
 

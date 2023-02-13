@@ -16,27 +16,53 @@
     @endsection
 
     @section('content')
-        <form action="{{ route('create') }}" method="POST">
-            @csrf
-            <input name="id" type="hidden">
-            Name: <input name="name" type="text">
-            Last Name: <input name="last_name" type="text">
-            Birth Date: <input name="birth_year" type="date">
-            Gender: <input name="gender" type="text" maxlength="1">
-            <button type="submit"> register Student </button>
-            <table>
+        <main class="container mt-5 d-flex flex-column">
+            <form action="{{ route('create') }}" method="POST">
+                @csrf
+                <input name="id" type="hidden">
+                Name: <input name="name" type="text" value="{{old('name')}}">
+                @error('name')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror    
+                
+                Last Name: <input name="last_name" type="text" value="{{old('last_name')}}">
+                @error('last_name')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror
 
-                @foreach ($subjects as $subject)
-                    <tr>
-                        <td>
-                            <label> <input type="checkbox" name="subjectChecked[]" value="{{ $subject->id }}">{{ $subject->name }}</label>
-                        </td>
-                    </tr>
-                @endforeach
 
-            </table>
-        </form>
+                Birth Date: <input name="birth_year" type="date" value="{{old('birth_year')}}">
+                @error('birth_year')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror
+
+
+                Gender: <input name="gender" type="text" maxlength="1" value="{{old('gender')}}">
+                @error('gender')
+                <br>
+                <p class="mt-1 mb-1 alert alert-danger small"> {{ $message }} </p>
+                @enderror
+
+                <table>
+
+                    @foreach ($subjects as $subject)
+                        <tr>
+                            <td>
+                                <label> <input type="checkbox" name="subjectChecked[]"
+                                        value="{{ $subject->id }}">{{ $subject->name }}</label>
+                            </td>
+                        </tr>
+                    @endforeach
+                    <button type="submit"> register Student </button>
+                </table>
+            </form>
+        </main>
     @endsection
+
+
 
 
 
